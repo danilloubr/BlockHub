@@ -28,7 +28,7 @@ export default function Dashboard() {
       console.log("DATA AQUI:", data);
       console.log("BODY:", body);
       toast.success(`Projeto criado com sucesso!`);
-      setTimeout(() => history.push("/projetos"), 2000);
+      setTimeout(() => history.push("/projects"), 2000);
       setLoadingAuth(false);
     } catch (error) {
       toast.error("Algo deu errado, verifique os campos.");
@@ -54,7 +54,11 @@ export default function Dashboard() {
           </div>
           <div className="card">
             <h2>TODOS OS PROJETOS</h2>
-            <Button variant="contained" size="large">
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() => history.push("/projects")}
+            >
               ACESSAR
             </Button>
           </div>

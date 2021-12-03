@@ -9,3 +9,6 @@ export const registerService = (body) => {
 export const registerProject = (body) => {
   return client.post(`/project`, body);
 };
+export const getProjects = () => {
+  return client.get(`/project`);
+};

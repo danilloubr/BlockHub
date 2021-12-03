@@ -6,6 +6,7 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@material-ui/core": "^5.0.0-beta.5",
+    "@mui/icons-material": "^5.2.0",
     "@mui/material": "latest",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

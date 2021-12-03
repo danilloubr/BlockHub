@@ -1,0 +1,133 @@
+.container-projeto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(224, 224, 224);
+
+  width: 100%;
+  position: absolute;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.container-interno-projeto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #11132f;
+  margin: 100px;
+  /* height: 600px; */
+  /* width: 1200px; */
+  box-shadow: 15px 20px 20px 20px rgb(0 0 0 / 25%);
+  border: none;
+  border-radius: 30px;
+  padding: 50px;
+}
+
+.container-interno-projeto img {
+  margin: 15px 0 30px 0;
+}
+
+.container-interno-projeto img:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+
+.div-input {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 100% !important;
+  flex-direction: column;
+  padding: 0 80px 30px 80px;
+}
+.div-input input {
+  color: white;
+  font-size: 25px;
+  display: flex;
+  min-width: 230px !important;
+  width: 100% !important;
+}
+
+.cards-projeto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+  background-color: #01aeef;
+  margin: 50px;
+  height: 250px;
+  width: 250px;
+  box-shadow: 1px 7px 7px 2px rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.card-projeto h2 {
+  padding: 10px;
+  font-size: 35px;
+  text-align: center;
+  color: white;
+  filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.7));
+}
+
+.card-projeto h5 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #195f1f;
+  font-size: 15px;
+}
+
+.card-projeto:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+
+.botoes-projeto {
+  display: flex !important;
+  flex-direction: row !important;
+  padding: 15px !important;
+  justify-content: space-around !important;
+  line-height: 1 !important;
+}
+.botoes-projeto button {
+  margin: 0px 5px 0 5px !important;
+  line-height: 1.4 !important;
+}
+
+.card-projeto-false {
+  display: flex;
+  flex-direction: column;
+  background-color: #39393a;
+  margin: 50px;
+  height: 250px;
+  width: 250px;
+  box-shadow: 1px 7px 7px 2px rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.card-projeto-false h5 {
+  font-size: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
