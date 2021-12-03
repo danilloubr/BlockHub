@@ -12,7 +12,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DoNotTouchIcon from "@mui/icons-material/DoNotTouch";
 
 import { toast } from "react-toastify";
-import { getProjects } from "../../services/services";
+import { getProjects, editProjects } from "../../services/services";
 
 export default function Projects() {
   const { logout, setLoadingAuth, loadingAuth } = useContext(AuthContext);
@@ -40,6 +40,37 @@ export default function Projects() {
     onSubmitRegister();
   }, []);
 
+  const activeProject = async (id) => {
+    try {
+      const { data: resp } = await editProjects(id, {
+        ...projects,
+        name: projects.name,
+        active: true,
+      });
+      console.log(resp);
+
+      toast.success("Projeto ativado com sucesso!");
+      history.push("/dashboard");
+    } catch (error) {
+      toast.error("EITA, algo deu errado.");
+    }
+  };
+  const disableProject = async (id) => {
+    try {
+      const { data: resp } = await editProjects(id, {
+        ...projects,
+        name: projects.name,
+        active: false,
+      });
+      console.log(resp);
+
+      toast.success("Projeto destivado com sucesso!");
+      history.push("/dashboard");
+    } catch (error) {
+      toast.error("EITA, algo deu errado.");
+    }
+  };
+
   console.log("PROJETOS", projects);
   return (
     <Fragment>
@@ -63,9 +94,9 @@ export default function Projects() {
               )
               .map((projeto) => {
                 return (
-                  <>
+                  <Fragment key={projeto._id}>
                     {projeto.active ? (
-                      <div key={projeto._id} className="card-projeto">
+                      <div className="card-projeto">
                         <h2>{projeto.name}</h2>
                         <h5>
                           PROJETO: ATIVO
@@ -83,6 +114,9 @@ export default function Projects() {
                             Adicionar hora
                           </Button>
                         </div>
+                        <p onClick={() => disableProject(projeto._id)}>
+                          DESATIVAR PROJETO
+                        </p>
                       </div>
                     ) : (
                       <div key={projeto._id} className="card-projeto-false">
@@ -108,9 +142,12 @@ export default function Projects() {
                             Adicionar hora
                           </Button>
                         </div>
+                        <p onClick={() => activeProject(projeto._id)}>
+                          ATIVAR PROJETO
+                        </p>
                       </div>
                     )}
-                  </>
+                  </Fragment>
                 );
               })}
           </div>

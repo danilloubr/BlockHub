@@ -12,3 +12,6 @@ export const registerProject = (body) => {
 export const getProjects = () => {
   return client.get(`/project`);
 };
+export const editProjects = (id, body) => {
+  return client.patch(`/project/${id}`, body);
+};

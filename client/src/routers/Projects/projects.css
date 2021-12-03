@@ -62,7 +62,7 @@
   flex-direction: column;
   background-color: #01aeef;
   margin: 50px;
-  height: 250px;
+  min-height: 250px;
   width: 250px;
   box-shadow: 1px 7px 7px 2px rgba(0, 0, 0, 0.7);
   border: none;
@@ -113,7 +113,7 @@
   flex-direction: column;
   background-color: #39393a;
   margin: 50px;
-  height: 250px;
+  min-height: 250px;
   width: 250px;
   box-shadow: 1px 7px 7px 2px rgba(0, 0, 0, 0.7);
   border: none;
@@ -124,10 +124,32 @@
   align-content: center;
 }
 .card-projeto-false h5 {
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card-projeto-false p {
+  color: rgb(64, 124, 3);
+  cursor: copy;
+  font-size: 12px;
+  margin-top: -20px;
+}
+
+.card-projeto-false p:hover {
+  color: chartreuse;
+}
+
+.card-projeto p {
+  color: rgb(124, 3, 3);
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.card-projeto p:hover {
+  color: rgb(255, 0, 0);
 }
