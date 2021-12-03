@@ -81,6 +81,14 @@
   filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.7));
 }
 
+.card-projeto-false h2 {
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  opacity: 0.6;
+  filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.7));
+}
+
 .card-projeto h5 {
   text-align: center;
   display: flex;
@@ -136,10 +144,13 @@
   color: rgb(64, 124, 3);
   cursor: copy;
   font-size: 12px;
-  margin-top: -20px;
+
+  margin-bottom: 10px;
 }
 
 .card-projeto-false p:hover {
+  transform: scale(1.2);
+  transition: ease-in 0.5s;
   color: chartreuse;
 }
 
