@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(224, 224, 224);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.container-interno {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #11132f;
+  margin: 100px;
+  height: 600px;
+  width: 1200px;
+  box-shadow: 15px 20px 20px 20px rgb(0 0 0 / 25%);
+  border: none;
+  border-radius: 30px;
+}
+
+.container-interno img:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #01aeef;
+  margin: 50px;
+  height: 250px;
+  width: 250px;
+  box-shadow: 1px 7px 7px 2px rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.card h2 {
+  font-size: 35px;
+  text-align: center;
+  color: white;
+  filter: drop-shadow(0 0 2rem rgba(0, 0, 0, 0.7));
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+
+.customOverlay {
+  background: rgba(0, 0, 0, 0.808) !important;
+}
+.customModal {
+  background: #b2dbbf;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px !important;
+}
+
+.container-modal {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: stretch;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-modal button,
+input {
+  margin-top: 15px;
+}
+
+.container-modal p {
+  margin-bottom: 15px;
+  text-align: center;
+}
