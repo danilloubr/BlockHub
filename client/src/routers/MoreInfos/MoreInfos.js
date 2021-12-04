@@ -8,13 +8,12 @@ import "react-responsive-modal/styles.css";
 import logo from "../../assets/logo.png";
 import { TextField } from "@mui/material";
 
-import { toast } from "react-toastify";
-import { getHours, registerProject } from "../../services/services";
+import { getHours } from "../../services/services";
 
 import "./moreinfos.css";
 
 export default function MoreInfos() {
-  const { logout, setLoadingAuth, loadingAuth } = useContext(AuthContext);
+  const { logout, loadingAuth } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [horas, setHoras] = useState([]);
@@ -29,7 +28,7 @@ export default function MoreInfos() {
       try {
         const { data: responsive } = await getHours();
         console.log("HORAS MORE INFO AQUI:", responsive);
-        //   console.log("BODY:", body);
+
         const filterProject = responsive.filter((item) => item.project === id);
         setHoras(filterProject);
       } catch (error) {
@@ -42,10 +41,6 @@ export default function MoreInfos() {
 
   if (!horas) return null;
 
-  const openModal = () => {
-    setOpen(true);
-    setLoadingAuth(false);
-  };
   console.log("HORAS MORE INFO", horas);
   return (
     <Fragment>

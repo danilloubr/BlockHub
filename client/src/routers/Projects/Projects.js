@@ -28,7 +28,7 @@ export default function Projects() {
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [busca, setBusca] = useState("");
-  const [name, setName] = useState("");
+
   const [hours, setHours] = useState("");
   const [date, setDate] = useState("");
   const [colaborador, setColaborador] = useState("");
