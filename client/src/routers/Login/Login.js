@@ -18,11 +18,9 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (email !== "" && password !== "") {
-      onSubmit(body);
-      setLoadingAuth(true);
-      setTimeout(() => history.push("/dashboard"), 2000);
-    }
+    onSubmit(body);
+    setLoadingAuth(true);
+    setTimeout(() => history.push("/dashboard"), 2000);
   }
 
   return (
