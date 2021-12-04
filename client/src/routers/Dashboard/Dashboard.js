@@ -113,7 +113,15 @@ export default function Dashboard() {
           LOGOUT{" "}
         </Button>
       </div>
-      <Modal open={open} onClose={() => setOpen(false)} center classNames={{}}>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        center
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}
+      >
         <br />
 
         <div className="container-modal">
@@ -140,7 +148,10 @@ export default function Dashboard() {
         open={openUser}
         onClose={() => setOpenUser(false)}
         center
-        classNames={{}}
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}
       >
         <br />
 

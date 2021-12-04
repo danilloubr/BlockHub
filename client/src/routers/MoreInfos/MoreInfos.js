@@ -98,7 +98,10 @@ export default function MoreInfos() {
           open={open}
           onClose={() => setOpen(false)}
           center
-          classNames={{}}
+          classNames={{
+            overlay: "customOverlay",
+            modal: "customModal",
+          }}
         >
           <br />
 

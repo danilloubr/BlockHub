@@ -251,7 +251,10 @@ export default function Projects() {
           open={open}
           onClose={() => setOpen(false)}
           center
-          classNames={{}}
+          classNames={{
+            overlay: "customOverlay",
+            modal: "customModal",
+          }}
         >
           <br />
 
