@@ -11,6 +11,7 @@ import PrivateRoute from "./routers/Private/PrivateRouter";
 import { ToastContainer } from "react-toastify";
 import { AuthContext } from "./contexts/auth";
 import Projects from "./routers/Projects/Projects";
+import MoreInfos from "./routers/MoreInfos/MoreInfos";
 
 function App() {
   const auth = AuthProvider(AuthContext);
@@ -30,6 +31,12 @@ function App() {
             isPrivate
           />
           <PrivateRoute exact path="/projects" component={Projects} isPrivate />
+          <PrivateRoute
+            exact
+            path="/moreinfos/:id"
+            component={MoreInfos}
+            isPrivate
+          />
         </Switch>
       </Router>
     </AuthProvider>

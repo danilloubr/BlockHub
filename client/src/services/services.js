@@ -15,3 +15,12 @@ export const getProjects = () => {
 export const editProjects = (id, body) => {
   return client.patch(`/project/${id}`, body);
 };
+export const postHours = (body) => {
+  return client.post(`/hours`, body);
+};
+export const getUsers = () => {
+  return client.get(`/user`);
+};
+export const getHours = () => {
+  return client.get(`/hours`);
+};

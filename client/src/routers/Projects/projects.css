@@ -35,6 +35,15 @@
   transition: 0.5s ease-in-out;
 }
 
+.div-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100% !important;
+  flex-direction: row;
+  padding: 0 80px 30px 80px;
+}
+
 .div-input {
   display: flex;
   justify-content: space-around;
@@ -163,4 +172,12 @@
 
 .card-projeto p:hover {
   color: rgb(255, 0, 0);
+}
+
+.div-btn-fim {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100% !important;
+  flex-direction: row;
 }

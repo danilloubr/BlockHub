@@ -29,7 +29,7 @@ function Register() {
       console.log("DATA AQUI:", data);
       console.log("BODY:", body);
       toast.success(`Usuário criado com sucesso!`);
-      setTimeout(() => history.push("/"), 2000);
+      setTimeout(() => history.push("/"), 1000);
       setLoadingAuth(false);
     } catch (error) {
       toast.error("Algo deu errado, verifique os campos.");
