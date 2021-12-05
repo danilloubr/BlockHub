@@ -57,6 +57,7 @@ export default function MoreInfos() {
 
   const teste = horas
     .filter((item) => {
+      // eslint-disable-next-line no-self-compare
       return item.day === item.day;
     })
     .map((item) => {
