@@ -68,11 +68,11 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container">
-      <div className="container-interno">
+    <div className="container-dashboard">
+      <div className="container-interno-dashboard">
         <img src={logo} alt="Logo BlockHub" />
-        <div className="cards">
-          <div className="card">
+        <div className="cards-dashboard">
+          <div className="card-dashboard">
             <h2>NOVO PROJETO</h2>
             <Button
               variant="contained"
@@ -82,7 +82,7 @@ export default function Dashboard() {
               ADICIONAR
             </Button>
           </div>
-          <div className="card">
+          <div className="card-dashboard">
             <h2>TODOS OS PROJETOS</h2>
             <Button
               variant="contained"
@@ -92,7 +92,7 @@ export default function Dashboard() {
               ACESSAR
             </Button>
           </div>
-          <div className="card">
+          <div className="card-dashboard">
             <h2>CADASTRAR COLABORADOR</h2>
             <Button
               variant="contained"
