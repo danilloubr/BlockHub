@@ -26,7 +26,6 @@ export default function MoreInfos() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [horas, setHoras] = useState([]);
-  const [pizza, setPizza] = useState([]);
 
   const { id } = useParams();
 
@@ -75,7 +74,6 @@ export default function MoreInfos() {
 
         const filterProject = responsive.filter((item) => item.project === id);
         setHoras(filterProject);
-        setPizza(filterProject);
       } catch (error) {
         console.log(error);
       }
@@ -138,7 +136,6 @@ export default function MoreInfos() {
   console.log("HORAS DAY", horas);
 
   if (!horas) return null;
-  if (!pizza) return null;
 
   return (
     <Fragment>
