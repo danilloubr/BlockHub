@@ -11,6 +11,8 @@ import { TextField } from "@mui/material";
 import { getHours } from "../../services/services";
 import { PieChart } from "reaviz";
 
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+
 import "./moreinfos.css";
 
 export default function MoreInfos() {
@@ -94,38 +96,61 @@ export default function MoreInfos() {
   // console.log("SOMA:", soma);
 
   // exemplo de saida: { key: 25/09/2000, data: 8}
-  console.log("teste", teste);
+  console.log("HORAS DAY", horas);
 
   if (!horas) return null;
   if (!pizza) return null;
 
-  console.log("HORAS MORE INFO", horas);
   return (
     <Fragment>
+      <table className="tabela-moreinfos-excel" id="table-to-xls">
+        <tr>
+          <th>Projeto ID</th>
+          <th>Colaborador ID</th>
+          <th>Horas</th>
+          <th>Data</th>
+        </tr>
+
+        {horas.map((item) => {
+          return (
+            <>
+              <tr>
+                <td>{item.project}</td>
+                <td>{item.user}</td>
+                <td>{item.hours}</td>
+                <td>{item.day}</td>
+              </tr>
+            </>
+          );
+        })}
+      </table>
       <div className="container-moreinfos">
         <div className="container-interno-moreinfos">
           <img src={logo} alt="Logo BlockHub" />
           <div className="cards-moreinfos">
             <div className="card-moreinfos">
-              {horas.map((item) => (
-                <Fragment>
-                  <div className="tabela-moreinfos">
-                    <h4 style={{ margin: "5px 0 5px 0" }}>
-                      Foi adicionado{" "}
-                      <b style={{ color: "white", fontSize: "18px" }}>
-                        {item.hours}
-                      </b>{" "}
-                      horas nesse projeto no dia{" "}
-                      <b
-                        style={{ color: "white", fontSize: "18px" }}
-                      >{`${item.day.slice(8, 10)}/${item.day.slice(
-                        5,
-                        7
-                      )}/${item.day.slice(0, 4)}.`}</b>
-                    </h4>
-                  </div>
-                </Fragment>
-              ))}
+              {horas.map((item) => {
+                return (
+                  <Fragment>
+                    <div className="tabela-moreinfos">
+                      <h4 style={{ margin: "5px 0 5px 0" }}>
+                        Foi adicionado{" "}
+                        <b style={{ color: "white", fontSize: "18px" }}>
+                          {item.hours}
+                        </b>{" "}
+                        horas nesse projeto no dia{" "}
+                        <b
+                          style={{ color: "white", fontSize: "18px" }}
+                        >{`${item.day.slice(8, 10)}/${item.day.slice(
+                          5,
+                          7
+                        )}/${item.day.slice(0, 4)}.`}</b>
+                      </h4>
+                    </div>
+                  </Fragment>
+                );
+              })}
+              <div className="tabela-moreinfos"></div>
             </div>
             <div className="grafico-pizza">
               <PieChart width={300} height={250} data={teste} />
@@ -142,6 +167,14 @@ export default function MoreInfos() {
               </h1>
             </div>
           </div>
+          <ReactHTMLTableToExcel
+            id="test-table-xls-button"
+            className="download-table-xls-button"
+            table="table-to-xls"
+            filename="Tabela de Horas do Projeto"
+            sheet="Tabela de Horas do Projeto"
+            buttonText="Download Tabela de Horas do Projeto"
+          />
           <Button
             variant="contained"
             size="small"

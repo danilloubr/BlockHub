@@ -123,6 +123,10 @@ input {
   text-align: center;
 }
 
+.tabela-moreinfos-excel {
+  display: none;
+}
+
 @media (max-width: 940px) {
   .cards-moreinfos {
     flex-direction: column;
