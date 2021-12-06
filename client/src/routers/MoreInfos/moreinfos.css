@@ -127,6 +127,14 @@ input {
   display: none;
 }
 
+.download-table-xls-button {
+  color: #11132f;
+  background-color: #01aeef;
+  border: none;
+  width: 50px;
+  font-size: 55px;
+}
+
 @media (max-width: 940px) {
   .cards-moreinfos {
     flex-direction: column;

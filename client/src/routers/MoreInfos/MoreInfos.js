@@ -13,6 +13,14 @@ import { PieChart } from "reaviz";
 
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialIcon from "@mui/material/SpeedDialIcon";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
+import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
+import SaveIcon from "@mui/icons-material/Save";
+import PrintIcon from "@mui/icons-material/Print";
+import ShareIcon from "@mui/icons-material/Share";
+
 import "./moreinfos.css";
 
 export default function MoreInfos() {
@@ -23,6 +31,39 @@ export default function MoreInfos() {
   const [pizza, setPizza] = useState([]);
 
   const { id } = useParams();
+
+  function salvar(e) {}
+
+  const actions = [
+    {
+      icon: (
+        <ReactHTMLTableToExcel
+          id="test-table-xls-button"
+          className="download-table-xls-button"
+          table="table-to-xls"
+          filename="Tabela de Horas do Projeto"
+          sheet="Tabela de Horas do Projeto"
+          buttonText={<SaveIcon />}
+        />
+      ),
+      name: "Salvar Tabela para EXCEL",
+      do: () => salvar(),
+    },
+    {
+      icon: (
+        <ReactHTMLTableToExcel
+          id="test-table-xls-button"
+          className="download-table-xls-button"
+          table="table-to-xls"
+          filename="Tabela de Horas do Projeto"
+          sheet="Tabela de Horas do Projeto"
+          buttonText={<FileCopyIcon />}
+        />
+      ),
+      name: "Salvar PDF",
+      do: () => salvar(),
+    },
+  ];
 
   console.log("HORAS", horas);
 
@@ -166,15 +207,22 @@ export default function MoreInfos() {
                 horas.
               </h1>
             </div>
+            <SpeedDial
+              ariaLabel="SpeedDial basic example"
+              // sx={{ position: "absolute", bottom: 16, right: 16 }}
+              icon={<SpeedDialIcon />}
+            >
+              {actions.map((action) => (
+                <SpeedDialAction
+                  key={action.name}
+                  icon={action.icon}
+                  tooltipTitle={action.name}
+                  onClick={action.do}
+                />
+              ))}
+            </SpeedDial>
           </div>
-          <ReactHTMLTableToExcel
-            id="test-table-xls-button"
-            className="download-table-xls-button"
-            table="table-to-xls"
-            filename="Tabela de Horas do Projeto"
-            sheet="Tabela de Horas do Projeto"
-            buttonText="Download Tabela de Horas do Projeto"
-          />
+
           <Button
             variant="contained"
             size="small"
