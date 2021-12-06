@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(224, 224, 224);
-
+  height: 100%;
   width: 100%;
   position: absolute;
 }
@@ -138,5 +138,15 @@ input {
 @media (max-width: 940px) {
   .cards-moreinfos {
     flex-direction: column;
+  }
+
+  .container-moreinfos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    height: 147%;
+    width: 100%;
+    position: absolute;
   }
 }

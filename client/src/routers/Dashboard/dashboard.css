@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(224, 224, 224);
-
+  height: 100%;
   width: 100%;
   position: absolute;
 }
@@ -108,5 +108,15 @@ input {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .container-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    height: 120%;
+    width: 100%;
+    position: absolute;
   }
 }
