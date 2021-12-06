@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/auth";
 import { Link } from "react-router-dom";
 import "./login.css";
@@ -14,6 +14,10 @@ function Login() {
   const { onSubmit, loadingAuth, setLoadingAuth } = useContext(AuthContext);
 
   const body = { email: email, password: password };
+
+  useEffect(() => {
+    localStorage.setItem("token", "tokenValid");
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
