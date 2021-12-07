@@ -9,6 +9,7 @@ import logo from "../../assets/logo.png";
 
 import "./register.css";
 import { toast } from "react-toastify";
+import { Button, TextField } from "@mui/material";
 
 function Register() {
   const [name, setName] = useState("");
@@ -47,27 +48,33 @@ function Register() {
 
         <form onSubmit={onSubmitRegister}>
           <h1>Cadastrar uma conta</h1>
-          <input
-            type="text"
-            placeholder="Seu nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="email@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="*******"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">
-            {loadingAuth ? "Carregando..." : "Cadastrar"}
-          </button>
+          <div className="inputs-form">
+            <TextField
+              type="text"
+              placeholder="Seu nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <TextField
+              type="text"
+              label="Usuário"
+              placeholder="email@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              type="password"
+              label="Senha"
+              placeholder="*******"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="botao-form">
+            <Button variant="contained" size="large" type="submit">
+              {loadingAuth ? "Carregando..." : "Cadastar"}
+            </Button>
+          </div>
         </form>
 
         <Link to="/">Já possui uma conta? Entre</Link>

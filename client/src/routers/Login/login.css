@@ -7,7 +7,7 @@
 }
 
 .login {
-  background: #eaeaec;
+  background: #01aeef;
   width: 600px;
   display: flex;
   align-items: center;
@@ -15,12 +15,13 @@
   flex-direction: column;
   margin: 50px;
   border-radius: 30px;
+  box-shadow: 1px 7px 7px 2px rgb(0 0 0 / 70%);
 }
 
 .login-area {
   display: flex;
   justify-content: center;
-  background-color: #181c2e;
+  background-color: midnightblue;
   width: 100%;
   border-radius: 30px 30px 0px 0;
 }
@@ -40,31 +41,36 @@ form {
 
 form h1 {
   text-align: center;
-  margin-bottom: 0.5em;
-  color: #181c2e;
-}
 
-.login input {
-  margin-bottom: 15px;
-  height: 35px;
-  border: 0;
-  border-radius: 7px;
-  padding: 10px;
-  font-size: 15px;
-  background-color: #fff;
+  color: midnightblue;
 }
 
 form button {
-  height: 35px;
-  border: 0;
-  border-radius: 7px;
-  background-color: #181c2e;
-  color: #fff;
-  font-size: 1.3em;
+  margin-top: 50px;
 }
 
 .login a {
   margin: 1.5em 0;
   color: #000;
   cursor: pointer;
+}
+
+.botao-form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.inputs-form {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+
+.inputs-form div {
+  margin-top: 10px;
 }

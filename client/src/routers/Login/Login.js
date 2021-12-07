@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./login.css";
 import logo from "../../assets/logo.png";
 import { useHistory } from "react-router";
+import { Button, TextField } from "@mui/material";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,21 +37,27 @@ function Login() {
 
         <form onSubmit={handleSubmit}>
           <h1>Entrar</h1>
-          <input
-            type="text"
-            placeholder="email@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="*******"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">
-            {loadingAuth ? "Carregando..." : "Acessar"}
-          </button>
+          <div className="inputs-form">
+            <TextField
+              type="text"
+              label="Usuário"
+              placeholder="email@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              type="password"
+              label="Senha"
+              placeholder="*******"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="botao-form">
+            <Button variant="contained" size="large" type="submit">
+              {loadingAuth ? "Carregando..." : "Acessar"}
+            </Button>
+          </div>
         </form>
 
         <Link to="/register">Não tem uma conta? Cadastre-se</Link>
