@@ -217,19 +217,21 @@ export default function MoreInfos() {
                     horas.
                   </h1>
                 </div>
-                <SpeedDial
-                  ariaLabel="SpeedDial basic example"
-                  icon={<FileDownloadOutlinedIcon />}
-                >
-                  {actions.map((action) => (
-                    <SpeedDialAction
-                      key={action.name}
-                      icon={action.icon}
-                      tooltipTitle={action.name}
-                      onClick={action.do}
-                    />
-                  ))}
-                </SpeedDial>
+                <div className="downloads">
+                  <SpeedDial
+                    ariaLabel="SpeedDial basic example"
+                    icon={<FileDownloadOutlinedIcon />}
+                  >
+                    {actions.map((action) => (
+                      <SpeedDialAction
+                        key={action.name}
+                        icon={action.icon}
+                        tooltipTitle={action.name}
+                        onClick={action.do}
+                      />
+                    ))}
+                  </SpeedDial>
+                </div>
               </div>
             </PDFExport>
           </div>

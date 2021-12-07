@@ -150,4 +150,8 @@ input {
     width: 100%;
     position: absolute;
   }
+
+  .downloads {
+    display: none;
+  }
 }
