@@ -75,6 +75,7 @@
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: auto;
 }
 
 .container-modal button,
