@@ -51,7 +51,8 @@ function Register() {
           <div className="inputs-form">
             <TextField
               type="text"
-              placeholder="Seu nome"
+              label="Seu nome"
+              placeholder="Nome Completo"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
