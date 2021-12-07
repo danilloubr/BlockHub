@@ -24,7 +24,7 @@ function Login() {
 
     onSubmit(body);
     setLoadingAuth(true);
-    setTimeout(() => history.push("/dashboard"), 2000);
+    setTimeout(() => history.push("/dashboard"), 3000);
   }
 
   return (

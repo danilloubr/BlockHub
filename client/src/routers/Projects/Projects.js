@@ -123,6 +123,11 @@ export default function Projects() {
       console.log("BODY DAS HORAS", body);
 
       setOpen(false);
+      setHours("");
+      setNomeProjeto("");
+      setColaboradorSelected("");
+
+      setDate("");
       toast.success("Hora adicionada com sucesso!");
     } catch (error) {
       toast.error("EITA, algo deu errado.");

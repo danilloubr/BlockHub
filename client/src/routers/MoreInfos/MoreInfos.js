@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState, useEffect } from "react";
+import { Fragment, useContext, useState, useEffect, useRef } from "react";
 import { AuthContext } from "../../contexts/auth";
 import Button from "@mui/material/Button";
 import { Modal } from "react-responsive-modal";
@@ -16,8 +16,10 @@ import ReactHTMLTableToExcel from "react-html-table-to-excel";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import SaveIcon from "@mui/icons-material/Save";
+
+import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
 
 import "./moreinfos.css";
 
@@ -28,6 +30,14 @@ export default function MoreInfos() {
   const [horas, setHoras] = useState([]);
 
   const { id } = useParams();
+
+  const pdfExportComponent = useRef(null);
+
+  const exportPDFWithComponent = () => {
+    if (pdfExportComponent.current) {
+      pdfExportComponent.current.save();
+    }
+  };
 
   function salvar(e) {}
 
@@ -49,16 +59,12 @@ export default function MoreInfos() {
     {
       icon: (
         <ReactHTMLTableToExcel
-          id="test-table-xls-button"
           className="download-table-xls-button"
-          table="table-to-xls"
-          filename="Tabela de Horas do Projeto"
-          sheet="Tabela de Horas do Projeto"
-          buttonText={<FileCopyIcon />}
+          buttonText={<SaveIcon />}
         />
       ),
       name: "Salvar PDF",
-      do: () => salvar(),
+      do: () => exportPDFWithComponent(),
     },
   ];
 
@@ -94,7 +100,7 @@ export default function MoreInfos() {
   //   return acc + elem.hours;
   // }, 0);
 
-  const teste = horas
+  const menuPizza = horas
     .filter((item) => {
       // eslint-disable-next-line no-self-compare
       return item.day === item.day;
@@ -160,62 +166,72 @@ export default function MoreInfos() {
           );
         })}
       </table>
+
       <div className="container-moreinfos">
         <div className="container-interno-moreinfos">
           <img src={logo} alt="Logo BlockHub" />
-          <div className="cards-moreinfos">
-            <div className="card-moreinfos">
-              {horas.map((item) => {
-                return (
-                  <Fragment>
-                    <div className="tabela-moreinfos">
-                      <h4 style={{ margin: "5px 0 5px 0" }}>
-                        Foi adicionado{" "}
-                        <b style={{ color: "white", fontSize: "18px" }}>
-                          {item.hours}
-                        </b>{" "}
-                        horas nesse projeto no dia{" "}
-                        <b
-                          style={{ color: "white", fontSize: "18px" }}
-                        >{`${item.day.slice(8, 10)}/${item.day.slice(
-                          5,
-                          7
-                        )}/${item.day.slice(0, 4)}.`}</b>
-                      </h4>
-                    </div>
-                  </Fragment>
-                );
-              })}
-              <div className="tabela-moreinfos"></div>
-            </div>
-            <div className="grafico-pizza">
-              <PieChart width={300} height={250} data={teste} />
-            </div>
-            <div className="resultado-total">
-              <h1>
-                O tempo investido nesse projeto é de{" "}
-                <b style={{ color: "white", fontSize: "60px" }}>
-                  {horas.reduce((acc, elem) => {
-                    return acc + elem.hours;
-                  }, 0)}
-                </b>{" "}
-                horas.
-              </h1>
-            </div>
-            <SpeedDial
-              ariaLabel="SpeedDial basic example"
-              // sx={{ position: "absolute", bottom: 16, right: 16 }}
-              icon={<SpeedDialIcon />}
+          <div className="teste">
+            <PDFExport
+              ref={pdfExportComponent}
+              paperSize="auto"
+              margin={40}
+              fileName={`Resumo do Projeto - ${new Date().getFullYear()}`}
+              author="Danilo Sousa"
             >
-              {actions.map((action) => (
-                <SpeedDialAction
-                  key={action.name}
-                  icon={action.icon}
-                  tooltipTitle={action.name}
-                  onClick={action.do}
-                />
-              ))}
-            </SpeedDial>
+              <div className="cards-moreinfos">
+                <div className="card-moreinfos">
+                  {horas.map((item) => {
+                    return (
+                      <Fragment>
+                        <div className="tabela-moreinfos">
+                          <h4 style={{ margin: "5px 0 5px 0" }}>
+                            Foi adicionado{" "}
+                            <b style={{ color: "white", fontSize: "18px" }}>
+                              {item.hours}
+                            </b>{" "}
+                            horas nesse projeto no dia{" "}
+                            <b
+                              style={{ color: "white", fontSize: "18px" }}
+                            >{`${item.day.slice(8, 10)}/${item.day.slice(
+                              5,
+                              7
+                            )}/${item.day.slice(0, 4)}.`}</b>
+                          </h4>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
+                  <div className="tabela-moreinfos"></div>
+                </div>
+                <div className="grafico-pizza">
+                  <PieChart width={300} height={250} data={menuPizza} />
+                </div>
+                <div className="resultado-total">
+                  <h1>
+                    O tempo investido nesse projeto é de{" "}
+                    <b style={{ color: "white", fontSize: "60px" }}>
+                      {horas.reduce((acc, elem) => {
+                        return acc + elem.hours;
+                      }, 0)}
+                    </b>{" "}
+                    horas.
+                  </h1>
+                </div>
+                <SpeedDial
+                  ariaLabel="SpeedDial basic example"
+                  icon={<FileDownloadOutlinedIcon />}
+                >
+                  {actions.map((action) => (
+                    <SpeedDialAction
+                      key={action.name}
+                      icon={action.icon}
+                      tooltipTitle={action.name}
+                      onClick={action.do}
+                    />
+                  ))}
+                </SpeedDial>
+              </div>
+            </PDFExport>
           </div>
 
           <Button
