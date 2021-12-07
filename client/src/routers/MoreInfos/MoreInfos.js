@@ -14,12 +14,12 @@ import { PieChart } from "reaviz";
 import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialIcon from "@mui/material/SpeedDialIcon";
+
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import SaveIcon from "@mui/icons-material/Save";
 
-import { PDFExport, savePDF } from "@progress/kendo-react-pdf";
+import { PDFExport } from "@progress/kendo-react-pdf";
 
 import "./moreinfos.css";
 

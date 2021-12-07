@@ -145,7 +145,7 @@ input {
     justify-content: center;
     align-items: center;
     background-color: rgb(224, 224, 224);
-    height: 147%;
+    height: auto;
     width: 100%;
     position: absolute;
   }
