@@ -11,8 +11,6 @@ function AuthProvider({ children }) {
   const [loadingAuth, setLoadingAuth] = useState(false);
   const [userToken, setUserToken] = useState();
 
-  console.log("IS AUTHENTICATED:", isAuthenticated);
-
   function login() {
     setIsAuthenticated(true);
   }
@@ -26,8 +24,6 @@ function AuthProvider({ children }) {
   const onSubmit = async (body) => {
     try {
       const { data } = await loginService(body);
-      console.log("DATA AQUI:", data.access_token);
-      console.log("BODY:", body);
 
       localStorage.setItem("token", data.access_token);
       localStorage.setItem("tokenValited", data.access_token);

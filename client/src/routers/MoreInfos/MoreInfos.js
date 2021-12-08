@@ -107,7 +107,7 @@ export default function MoreInfos() {
         {horas.map((item) => {
           return (
             <>
-              <tr>
+              <tr key={item._id}>
                 <td>{item.project}</td>
                 <td>{item.user}</td>
                 <td>{item.hours}</td>
@@ -175,7 +175,6 @@ export default function MoreInfos() {
                   >
                     {actions.map((action) => (
                       <SpeedDialAction
-                        key={action.name}
                         icon={action.icon}
                         tooltipTitle={action.name}
                         onClick={action.do}

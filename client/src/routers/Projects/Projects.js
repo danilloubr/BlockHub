@@ -100,12 +100,11 @@ export default function Projects() {
 
   const disableProject = async (id) => {
     try {
-      const { data: resp } = await editProjects(id, {
+      await editProjects(id, {
         ...projects,
         name: projects.name,
         active: false,
       });
-      console.log(resp);
 
       toast.success("Projeto destivado com sucesso!");
       history.push("/dashboard");
@@ -116,8 +115,7 @@ export default function Projects() {
 
   const addHours = async () => {
     try {
-      const { data: resp } = await postHours(body);
-      console.log(resp);
+      await postHours(body);
 
       setOpen(false);
       setHours("");
@@ -163,9 +161,9 @@ export default function Projects() {
               )
               .map((projeto) => {
                 return (
-                  <Fragment key={projeto._id}>
+                  <Fragment>
                     {projeto.active ? (
-                      <div className="card-projeto">
+                      <div className="card-projeto" key={projeto._id}>
                         <h2>{projeto.name}</h2>
                         <h5>
                           PROJETO: ATIVO

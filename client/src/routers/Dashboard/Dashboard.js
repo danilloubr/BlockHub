@@ -27,8 +27,7 @@ export default function Dashboard() {
   const onSubmitRegister = async () => {
     try {
       setLoadingAuth(true);
-      const { data } = await registerProject(body);
-      console.log(data);
+      await registerProject(body);
 
       toast.success(`Projeto criado com sucesso!`);
       setTimeout(() => history.push("/projects"), 2000);
@@ -43,8 +42,7 @@ export default function Dashboard() {
   const onSubmitRegisterUser = async () => {
     try {
       setLoadingAuth(true);
-      const { data } = await registerService(body2);
-      console.log(data);
+      await registerService(body2);
 
       toast.success(`Usuário criado com sucesso!`);
       setTimeout(() => history.push("/projects"), 1000);
