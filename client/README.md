@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+<h1 align="center">
+  
+  <br>
+  <img src="https://i.imgur.com/9vhnb4U.png alt="BlockHub" height="45" width="">
+  <br>
+<h1 align="center"><a href="https://block-hub.vercel.app/" target="_blank">🔗 BlockHub - Projeto Horas</a></h1>
+</h1>
+                                                                          
+## Descrição do Projeto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="left">Projeto desenvolvido com intuito de avaliação tecnica sobre domínio das Tecnologias usadas pela empresa para vaga remota de Front-end Júnior.</p>
 
-## Available Scripts
+## Deploy do Projeto - VERCEL
+               
+<h2 align="left"><a href="https://block-hub.vercel.app/" target="_blank"> BlockHub - Projeto Horas</a></h2>
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **Iniciando**
 
-### `yarn test`
+Essas instruções fornecerão uma cópia do projeto completo instalado e funcionando em sua máquina local para fins de desenvolvimento e teste.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+O projeto pode ser construído com npm ou yarn, então escolha uma das abordagens abaixo caso você não tenha nenhum instalado em seu sistema.
 
-### `yarn build`
+* O Npm é distribuído com o Node.js, o que significa que quando você baixa o Node.js, o npm é instalado automaticamente no seu computador. Baixe o Node.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* O Yarn é um gerenciador de pacotes criado pela equipe do Facebook e parece ser mais rápido do que o npm em geral. Baixar Yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## **Como Istalar**
 
-### `yarn eject`
+* Para baixar o projeto siga as instruções abaixo:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+1. git clone https://github.com/danilloubr/BlockHub.git
+2. cd client
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Instale as dependências e inicie o projeto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+3. yarn
+4. yarn start
+```
+ou
+                         
+```
+3. npm install
+4. npm start
+```
+## Capturas de tela:
+                         
+### Mobile:
+<p align="center">
+  
+  <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/CTVASpm.png" alt="Login">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/VYW5tDy.png" alt="Cadastro">
 
-## Learn More
+ 
+  <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/izlmaJm.png" alt="Cadastro">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   
+  <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/gjlZvQ5.png" alt="Colaborador">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/7qK5vFN.png" alt="dashboard">
+                                                                                                                
+   <img width="250" style="border-radius: 5px" height="450" src="https://i.imgur.com/pDOg2cs.png" alt="dashboard">                                                                                                             
 
-### Code Splitting
+                                                                                                                 
+ 
+</p>
+                         
+                        
+  
+                                                    
+                                                                                 
+                                                                                 
+  
+                         
+                         
+### Desktop:
+                         
+<p align="center">
+  <kbd>
+  Login
+  <img width="1000" style="border-radius: 5px" height="500" src="https://i.imgur.com/XWoTBqQ.png" alt="Login">
+  </kbd>
+                                                                                                             
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+  Dashboard
+  <img width="1000" style="border-radius: 5px" height="500" src="https://i.imgur.com/QAgyXJZ.png" alt="Dashboard">
+  </kbd>
+                                                                                                                 
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+  Cadastro 
+  <img width="1000" style="border-radius: 5px" height="500" src="https://i.imgur.com/bGLSGDL.png" alt="Cadastro">
+  </kbd>
+                                                                                                                  
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+  Projetos  
+  <img width="1000" style="border-radius: 5px" height="500" src="https://i.imgur.com/5cenzs6.png" alt="projects">
+  </kbd>
+                                                                                                                
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+  Informações
+  <img width="1000" style="border-radius: 5px" height="500" src="https://i.imgur.com/mPQ6lJh.png" alt="Moreinfos">
+  </kbd>
+                                                                                                                 
+  &nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+                                                                                                                 
+                                                                                                                   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+                                                                                                                   
+                                                                                                                   
