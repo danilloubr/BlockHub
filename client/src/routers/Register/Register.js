@@ -9,7 +9,7 @@ import { registerService } from "../../services/services";
 import { AuthContext } from "../../contexts/auth";
 
 import logo from "../../assets/logo.png";
-import "./register.css";
+import "../Login/login.css";
 
 function Register() {
   const [name, setName] = useState("");
