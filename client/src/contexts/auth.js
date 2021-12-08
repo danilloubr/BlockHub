@@ -1,4 +1,4 @@
-import { useState, createContext} from "react";
+import { useState, createContext } from "react";
 import { toast } from "react-toastify";
 
 import { loginService, registerService } from "../services/services";
@@ -20,14 +20,8 @@ function AuthProvider({ children }) {
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("token");
-    // localStorage.removeItem("tokenValited");
     setLoadingAuth(false);
   };
-
-//   useEffect(() => {
-//     const token = localStorage.getItem("token");
-//     userToken === token && setIsAuthenticated(true);
-//   }, []);
 
   const onSubmit = async (body) => {
     try {
@@ -48,14 +42,13 @@ function AuthProvider({ children }) {
     }
   };
 
-
   const onSubmitRegister = async (body) => {
     try {
       const { data } = await registerService(body);
       console.log("DATA AQUI:", data);
       console.log("BODY:", body);
       toast.success(`Usuário criado com sucesso!`);
-      setLoadingAuth(false)
+      setLoadingAuth(false);
     } catch (error) {
       toast.error("Algo deu errado, verifique os campos.");
       console.log(error);
@@ -73,7 +66,7 @@ function AuthProvider({ children }) {
         setLoadingAuth,
         login,
         userToken,
-        onSubmitRegister
+        onSubmitRegister,
       }}
     >
       {children}

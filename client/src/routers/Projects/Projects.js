@@ -1,21 +1,17 @@
 import { Fragment, useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../contexts/auth";
-import Button from "@mui/material/Button";
-import { Modal } from "react-responsive-modal";
 import { useHistory } from "react-router";
-
-import "./projects.css";
-import "react-responsive-modal/styles.css";
-import logo from "../../assets/logo.png";
-import { TextField } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import DoNotTouchIcon from "@mui/icons-material/DoNotTouch";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-
 import { toast } from "react-toastify";
+import { Modal } from "react-responsive-modal";
+
+import { AuthContext } from "../../contexts/auth";
+import {
+  TextField,
+  Button,
+  Select,
+  FormControl,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
 import {
   getProjects,
   editProjects,
@@ -23,17 +19,24 @@ import {
   postHours,
 } from "../../services/services";
 
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import DoNotTouchIcon from "@mui/icons-material/DoNotTouch";
+
+import logo from "../../assets/logo.png";
+import "react-responsive-modal/styles.css";
+import "./projects.css";
+
 export default function Projects() {
-  const { logout, setLoadingAuth, loadingAuth } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [busca, setBusca] = useState("");
-
   const [hours, setHours] = useState("");
   const [date, setDate] = useState("");
   const [colaborador, setColaborador] = useState("");
   const [colaboradorSelected, setColaboradorSelected] = useState("");
   const [nomeProjeto, setNomeProjeto] = useState("");
+
+  const { logout, setLoadingAuth, loadingAuth } = useContext(AuthContext);
 
   const history = useHistory();
 
@@ -48,8 +51,6 @@ export default function Projects() {
     const onSubmitRegister = async () => {
       try {
         const { data: responsive } = await getProjects();
-        console.log("RESPONSIVE AQUI:", responsive);
-        //   console.log("BODY:", body);
 
         setProjects(responsive);
       } catch (error) {
@@ -64,8 +65,6 @@ export default function Projects() {
     const onSubmitRegister = async () => {
       try {
         const { data: responsive } = await getUsers();
-        console.log("USERS AQUI:", responsive);
-        //   console.log("BODY:", body);
 
         setColaborador(responsive);
       } catch (error) {
@@ -114,13 +113,11 @@ export default function Projects() {
       toast.error("EITA, algo deu errado.");
     }
   };
-  console.log("BODY DAS HORAS FORA", body);
 
   const addHours = async () => {
     try {
       const { data: resp } = await postHours(body);
-      console.log("RESP AQUI HORAS", resp);
-      console.log("BODY DAS HORAS", body);
+      console.log(resp);
 
       setOpen(false);
       setHours("");
@@ -134,7 +131,6 @@ export default function Projects() {
     }
   };
 
-  console.log("PROJETOS", projects);
   return (
     <Fragment>
       <div className="container-projeto">
@@ -185,14 +181,6 @@ export default function Projects() {
                           >
                             Mais Informações
                           </Button>
-                          {/* <Button
-                            variant="contained"
-                            color="success"
-                            size="small"
-                            onClick={() => handleModal(projeto._id)}
-                          >
-                            Adicionar hora
-                          </Button> */}
                         </div>
                         <p onClick={() => disableProject(projeto._id)}>
                           DESATIVAR PROJETO
@@ -213,14 +201,6 @@ export default function Projects() {
                           >
                             Mais Informações
                           </Button>
-                          {/* <Button
-                            variant="contained"
-                            color="success"
-                            size="small"
-                            style={{ opacity: 0.2, cursor: "not-allowed" }}
-                          >
-                            Adicionar hora
-                          </Button> */}
                         </div>
                         <p onClick={() => activeProject(projeto._id)}>
                           ATIVAR PROJETO
@@ -266,14 +246,6 @@ export default function Projects() {
           <div className="container-modal">
             <h1>ADICIONAR HORAS AO PROJETO</h1>
             <p>Tenha o total controle do tempo gasto nos seus projetos.</p>
-
-            {/* <TextField
-              sx={{ margin: "10px 0 10px 0" }}
-              type="text"
-              label="Projeto Selecionado"
-              value={open}
-              onChange={(e) => setName(e.target.value)}
-            /> */}
 
             <FormControl sx={{ margin: "10px 0 10px 0" }}>
               <InputLabel id="input-horas">Quantidade de Horas</InputLabel>

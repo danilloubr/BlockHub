@@ -1,16 +1,15 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../contexts/auth";
-import Button from "@mui/material/Button";
-import { Modal } from "react-responsive-modal";
+import { Fragment, useContext, useState } from "react";
 import { useHistory } from "react-router";
-
-import "./dashboard.css";
-import "react-responsive-modal/styles.css";
-import logo from "../../assets/logo.png";
-import { TextField } from "@mui/material";
-
 import { toast } from "react-toastify";
 import { registerProject, registerService } from "../../services/services";
+import { AuthContext } from "../../contexts/auth";
+import { Modal } from "react-responsive-modal";
+
+import { TextField, Button } from "@mui/material";
+
+import logo from "../../assets/logo.png";
+import "./dashboard.css";
+import "react-responsive-modal/styles.css";
 
 export default function Dashboard() {
   const { logout, setLoadingAuth, loadingAuth } = useContext(AuthContext);
@@ -29,8 +28,8 @@ export default function Dashboard() {
     try {
       setLoadingAuth(true);
       const { data } = await registerProject(body);
-      console.log("DATA AQUI:", data);
-      console.log("BODY:", body);
+      console.log(data);
+
       toast.success(`Projeto criado com sucesso!`);
       setTimeout(() => history.push("/projects"), 2000);
       setLoadingAuth(false);
@@ -45,8 +44,8 @@ export default function Dashboard() {
     try {
       setLoadingAuth(true);
       const { data } = await registerService(body2);
-      console.log("DATA AQUI:", data);
-      console.log("BODY2:", body2);
+      console.log(data);
+
       toast.success(`Usuário criado com sucesso!`);
       setTimeout(() => history.push("/projects"), 1000);
       setLoadingAuth(false);
@@ -68,128 +67,130 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container-dashboard">
-      <div className="container-interno-dashboard">
-        <img src={logo} alt="Logo BlockHub" />
-        <div className="cards-dashboard">
-          <div className="card-dashboard">
-            <h2>NOVO PROJETO</h2>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => openModal()}
-            >
-              ADICIONAR
-            </Button>
+    <Fragment>
+      <div className="container-dashboard">
+        <div className="container-interno-dashboard">
+          <img src={logo} alt="Logo BlockHub" />
+          <div className="cards-dashboard">
+            <div className="card-dashboard">
+              <h2>NOVO PROJETO</h2>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => openModal()}
+              >
+                ADICIONAR
+              </Button>
+            </div>
+            <div className="card-dashboard">
+              <h2>TODOS OS PROJETOS</h2>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => history.push("/projects")}
+              >
+                ACESSAR
+              </Button>
+            </div>
+            <div className="card-dashboard">
+              <h2>CADASTRAR COLABORADOR</h2>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => openModalUser()}
+              >
+                CADASTRAR
+              </Button>
+            </div>
           </div>
-          <div className="card-dashboard">
-            <h2>TODOS OS PROJETOS</h2>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => history.push("/projects")}
-            >
-              ACESSAR
-            </Button>
-          </div>
-          <div className="card-dashboard">
-            <h2>CADASTRAR COLABORADOR</h2>
-            <Button
-              variant="contained"
-              size="large"
-              onClick={() => openModalUser()}
-            >
-              CADASTRAR
-            </Button>
-          </div>
+          <Button
+            color="error"
+            variant="outlined"
+            size="large"
+            onClick={() => logout()}
+          >
+            {" "}
+            LOGOUT{" "}
+          </Button>
         </div>
-        <Button
-          color="error"
-          variant="outlined"
-          size="large"
-          onClick={() => logout()}
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          center
+          classNames={{
+            overlay: "customOverlay",
+            modal: "customModal",
+          }}
         >
-          {" "}
-          LOGOUT{" "}
-        </Button>
+          <br />
+
+          <div className="container-modal">
+            <h1>ADICIONAR NOVO PROJETO</h1>
+            <p>Organize as horas trabalhadas nos seus projetos.</p>
+
+            <TextField
+              type="text"
+              placeholder="Nome do projeto"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={() => onSubmitRegister()}
+            >
+              {loadingAuth ? "Cadastrando..." : "ADICIONAR"}
+            </Button>
+          </div>
+          <br />
+        </Modal>
+        <Modal
+          open={openUser}
+          onClose={() => setOpenUser(false)}
+          center
+          classNames={{
+            overlay: "customOverlay",
+            modal: "customModal",
+          }}
+        >
+          <br />
+
+          <div className="container-modal">
+            <h1>ADICIONAR NOVO COLABORADOR</h1>
+            <p>Olá Colaborador, aproveite bem o nosso sistema.</p>
+
+            <TextField
+              style={{ margin: "5px 0 5px 0" }}
+              type="text"
+              placeholder="Nome do Colaborador"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <TextField
+              style={{ margin: "5px 0 5px 0" }}
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              style={{ margin: "5px 0 5px 0" }}
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={() => onSubmitRegisterUser()}
+            >
+              {loadingAuth ? "Cadastrando..." : "CADASTRAR"}
+            </Button>
+          </div>
+          <br />
+        </Modal>
       </div>
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        center
-        classNames={{
-          overlay: "customOverlay",
-          modal: "customModal",
-        }}
-      >
-        <br />
-
-        <div className="container-modal">
-          <h1>ADICIONAR NOVO PROJETO</h1>
-          <p>Organize as horas trabalhadas nos seus projetos.</p>
-
-          <TextField
-            type="text"
-            placeholder="Nome do projeto"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Button
-            variant="outlined"
-            size="large"
-            onClick={() => onSubmitRegister()}
-          >
-            {loadingAuth ? "Cadastrando..." : "ADICIONAR"}
-          </Button>
-        </div>
-        <br />
-      </Modal>
-      <Modal
-        open={openUser}
-        onClose={() => setOpenUser(false)}
-        center
-        classNames={{
-          overlay: "customOverlay",
-          modal: "customModal",
-        }}
-      >
-        <br />
-
-        <div className="container-modal">
-          <h1>ADICIONAR NOVO COLABORADOR</h1>
-          <p>Olá Colaborador, aproveite bem o nosso sistema.</p>
-
-          <TextField
-            style={{ margin: "5px 0 5px 0" }}
-            type="text"
-            placeholder="Nome do Colaborador"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextField
-            style={{ margin: "5px 0 5px 0" }}
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <TextField
-            style={{ margin: "5px 0 5px 0" }}
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button
-            variant="outlined"
-            size="large"
-            onClick={() => onSubmitRegisterUser()}
-          >
-            {loadingAuth ? "Cadastrando..." : "CADASTRAR"}
-          </Button>
-        </div>
-        <br />
-      </Modal>
-    </div>
+    </Fragment>
   );
 }

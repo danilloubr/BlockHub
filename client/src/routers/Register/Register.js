@@ -1,15 +1,15 @@
-import React from "react";
-
-import { useState, useContext } from "react";
-import { registerService } from "../../services/services";
-import { Link } from "react-router-dom";
+import { React, useState, useContext } from "react";
 import { useHistory } from "react-router";
-import { AuthContext } from "../../contexts/auth";
-import logo from "../../assets/logo.png";
-
-import "./register.css";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+
 import { Button, TextField } from "@mui/material";
+
+import { registerService } from "../../services/services";
+import { AuthContext } from "../../contexts/auth";
+
+import logo from "../../assets/logo.png";
+import "./register.css";
 
 function Register() {
   const [name, setName] = useState("");
@@ -27,8 +27,8 @@ function Register() {
     try {
       setLoadingAuth(true);
       const { data } = await registerService(body);
-      console.log("DATA AQUI:", data);
-      console.log("BODY:", body);
+      console.log(data);
+
       toast.success(`Usuário criado com sucesso!`);
       setTimeout(() => history.push("/"), 1000);
       setLoadingAuth(false);

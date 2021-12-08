@@ -1,10 +1,12 @@
 import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../../contexts/auth";
 import { Link } from "react-router-dom";
-import "./login.css";
-import logo from "../../assets/logo.png";
 import { useHistory } from "react-router";
+import { AuthContext } from "../../contexts/auth";
+
 import { Button, TextField } from "@mui/material";
+
+import logo from "../../assets/logo.png";
+import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");

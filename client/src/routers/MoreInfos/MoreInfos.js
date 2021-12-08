@@ -1,26 +1,22 @@
+/* eslint-disable no-self-compare */
 import { Fragment, useContext, useState, useEffect, useRef } from "react";
-import { AuthContext } from "../../contexts/auth";
-import Button from "@mui/material/Button";
-import { Modal } from "react-responsive-modal";
 import { useHistory, useParams } from "react-router";
-
-import "react-responsive-modal/styles.css";
-import logo from "../../assets/logo.png";
-import { TextField } from "@mui/material";
-
-import { getHours } from "../../services/services";
-import { PieChart } from "reaviz";
-
-import ReactHTMLTableToExcel from "react-html-table-to-excel";
-
-import SpeedDial from "@mui/material/SpeedDial";
-
-import SpeedDialAction from "@mui/material/SpeedDialAction";
-import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
-import SaveIcon from "@mui/icons-material/Save";
-
 import { PDFExport } from "@progress/kendo-react-pdf";
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+import { Modal } from "react-responsive-modal";
+import { getHours } from "../../services/services";
 
+import { PieChart } from "reaviz";
+import { TextField, Button } from "@mui/material";
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
+import SaveIcon from "@mui/icons-material/Save";
+import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+
+import { AuthContext } from "../../contexts/auth";
+
+import logo from "../../assets/logo.png";
+import "react-responsive-modal/styles.css";
 import "./moreinfos.css";
 
 export default function MoreInfos() {
@@ -39,8 +35,6 @@ export default function MoreInfos() {
     }
   };
 
-  function salvar(e) {}
-
   const actions = [
     {
       icon: (
@@ -54,7 +48,6 @@ export default function MoreInfos() {
         />
       ),
       name: "Salvar Tabela para EXCEL",
-      do: () => salvar(),
     },
     {
       icon: (
@@ -68,15 +61,12 @@ export default function MoreInfos() {
     },
   ];
 
-  console.log("HORAS", horas);
-
   const history = useHistory();
 
   useEffect(() => {
     const onSubmitRegister = async () => {
       try {
         const { data: responsive } = await getHours();
-        console.log("HORAS MORE INFO AQUI:", responsive);
 
         const filterProject = responsive.filter((item) => item.project === id);
         setHoras(filterProject);
@@ -88,21 +78,8 @@ export default function MoreInfos() {
     onSubmitRegister();
   }, [id]);
 
-  // console.log(
-  //   `${horas[0].day.slice(8, 10)}/${horas[0].day.slice(
-  //     5,
-  //     7
-  //   )}/${horas[0].day.slice(0, 4)}.`,
-  //   horas[0].hours
-  // );
-
-  // const teste = horas.reduce((acc, elem) => {
-  //   return acc + elem.hours;
-  // }, 0);
-
   const menuPizza = horas
     .filter((item) => {
-      // eslint-disable-next-line no-self-compare
       return item.day === item.day;
     })
     .map((item) => {
@@ -114,32 +91,6 @@ export default function MoreInfos() {
         data: `${item.hours}`,
       };
     });
-
-  // const array2 = [5, 15, -3, 54, -10];
-  // const soma = pizza.reduce(
-  //   (acc, elem) => {
-  //     console.log("acc", acc);
-
-  //     if (elem.day === "") {
-  //       acc.negativos.push(elem);
-  //     }
-  //     if (elem.hours > 0) {
-  //       acc.positivos.push(elem);
-  //     } else {
-  //     }
-  //     {
-  //     }
-  //     return acc;
-  //   },
-  //   {
-  //     negativos: [],
-  //     positivos: [],
-  //   }
-  // );
-  // console.log("SOMA:", soma);
-
-  // exemplo de saida: { key: 25/09/2000, data: 8}
-  console.log("HORAS DAY", horas);
 
   if (!horas) return null;
 
