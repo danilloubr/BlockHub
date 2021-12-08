@@ -10,8 +10,9 @@ import { PieChart } from "reaviz";
 import { TextField, Button } from "@mui/material";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import SaveIcon from "@mui/icons-material/Save";
+import TableViewIcon from "@mui/icons-material/TableView";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 
 import { AuthContext } from "../../contexts/auth";
 
@@ -44,7 +45,7 @@ export default function MoreInfos() {
           table="table-to-xls"
           filename="Tabela de Horas do Projeto"
           sheet="Tabela de Horas do Projeto"
-          buttonText={<SaveIcon />}
+          buttonText={<TableViewIcon />}
         />
       ),
       name: "Salvar Tabela para EXCEL",
@@ -53,7 +54,7 @@ export default function MoreInfos() {
       icon: (
         <ReactHTMLTableToExcel
           className="download-table-xls-button"
-          buttonText={<SaveIcon />}
+          buttonText={<PictureAsPdfIcon />}
         />
       ),
       name: "Salvar PDF",
